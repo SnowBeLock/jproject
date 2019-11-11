@@ -1,0 +1,17 @@
+package edu.jcourse;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int a = 10_000_000;
+        int b = 300;
+        long intResult=a*b;
+        System.out.println("Result:"+intResult);
+        long aL=10_000_000;
+        long bL=300;
+        long longResult=aL*bL;
+        System.out.println("result:"+longResult);
+    }
+
+}

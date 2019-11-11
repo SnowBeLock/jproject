@@ -7,6 +7,7 @@ public class Animal {
     private String name;
     private int age;
     private String type;
+    private int members;
     public void SayHello()
     {
         System.out.println(name +" sings Ed Sheeran song!");

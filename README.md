@@ -1,1 +1,1 @@
-Java Course
+Java Course Bangtan in Seoul

@@ -11,7 +11,7 @@ public abstract class Vehicle {
     {
         if(isHighway)
         {
-            return distanceHighwayMode();
+            return distanceHighwayMode()-11.133F;
         }
         else
         {

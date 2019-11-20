@@ -8,6 +8,6 @@ public class Bus extends Vehicle {
 
     @Override
     public float distanceHighwayMode() {
-        return (getTank()*150/getFuelPer100km()-5F);
+        return (getTank()*1/getFuelPer100km()-3F);
     }
 }

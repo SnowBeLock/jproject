@@ -5,12 +5,15 @@ import java.util.Scanner;
 public class ScannerDemo {
     public static void main(String[] args) {
 //        Scanner bts = new Scanner("Naega\n"+"Tobue\n"+"Ilpam\n");
-////       while (bts.hasNext()){
-////           System.out.println(bts.nextLine());
-////       }
+//      while (bts.hasNext()){
+//          System.out.println(bts.nextLine());
+//       }
 
         Scanner stringScanner = new Scanner(System.in);
-        System.out.println("A:"+stringScanner.next());
-        System.out.println("B:"+stringScanner.next());
+        int input1=stringScanner.nextInt();
+        int input2 = stringScanner.nextInt();
+        int sum=input1+input2;
+        System.out.println(sum);
+
    }
 }

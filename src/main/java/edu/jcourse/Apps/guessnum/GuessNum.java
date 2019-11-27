@@ -11,23 +11,21 @@ public class GuessNum {
     public static void main(String[] args) {
         Random random = new Random();
         int randomInt = random.nextInt(100);
+        boolean isLooser = true;
         for (int i = 0; i < 10; i++) {
             int input = askNum(i + 1);
-            if(i==9) {
+            if (i == 9) {
                 System.out.println("try again?");
 
                 String answer = playerNumeral.next();
-                if(answer.equals("yes"))
-                {
-                    i=0;
+                if (answer.equals("yes")) {
+                    i = 0;
                 }
-                if(answer.equals("no"))
-                {
+                if (answer.equals("no")) {
                     System.out.println("Bye, see you later!");
                     break;
                 }
-            }
-            else {
+            } else {
                 if (input > randomInt) {
                     System.out.println("The numeral is lower!  ");
                 }
@@ -35,12 +33,17 @@ public class GuessNum {
                     System.out.println("The numeral is higher! ");
                 }
                 if (input == randomInt) {
+                    isLooser = false;
                     System.out.println("You are extrasense!!!!");
                     break;
                 }
             }
         }
+        if (isLooser) {
+            System.out.println("You Lost!");
+        }
     }
+
     static int askNum(int tryNr) {
         while (true) {
             try {

@@ -13,15 +13,31 @@ public class GuessNum {
         int randomInt = random.nextInt(100);
         for (int i = 0; i < 10; i++) {
             int input = askNum(i + 1);
-            if (input > randomInt) {
-                System.out.println("The numeral is lower!  ");
+            if(i==9) {
+                System.out.println("try again?");
+
+                String answer = playerNumeral.next();
+                if(answer.equals("yes"))
+                {
+                    i=0;
+                }
+                if(answer.equals("no"))
+                {
+                    System.out.println("Bye, see you later!");
+                    break;
+                }
             }
-            if (input < randomInt) {
-                System.out.println("The numeral is higher! ");
-            }
-            if (input == randomInt) {
-                System.out.println("You are extrasense!!!!");
-                break;
+            else {
+                if (input > randomInt) {
+                    System.out.println("The numeral is lower!  ");
+                }
+                if (input < randomInt) {
+                    System.out.println("The numeral is higher! ");
+                }
+                if (input == randomInt) {
+                    System.out.println("You are extrasense!!!!");
+                    break;
+                }
             }
         }
     }

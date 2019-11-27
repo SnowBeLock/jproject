@@ -1,32 +1,44 @@
 package edu.jcourse.Apps.guessnum;
 
+import java.nio.channels.ScatteringByteChannel;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNum {
-    public static void main(String[] args) {
+    static Scanner playerNumeral = new Scanner(System.in);
 
+    public static void main(String[] args) {
         Random random = new Random();
         int randomInt = random.nextInt(100);
-
-        System.out.println("Enter the numeral from 1 to 100");
-
-        Scanner playerNumeral = new Scanner(System.in);
-
-
         for (int i = 0; i < 10; i++) {
-            int input = playerNumeral.nextInt();
+            int input = askNum(i + 1);
             if (input > randomInt) {
-                System.out.println("The numeral is lower");
+                System.out.println("The numeral is lower!  ");
             }
             if (input < randomInt) {
-                System.out.println("The numeral is higher");
+                System.out.println("The numeral is higher! ");
             }
             if (input == randomInt) {
                 System.out.println("You are extrasense!!!!");
                 break;
             }
         }
-
+    }
+    static int askNum(int tryNr) {
+        while (true) {
+            try {
+                System.out.printf("try #%d. Enter the numeral from 1 to 100", tryNr);
+                int input = playerNumeral.nextInt();
+                if (input < 1 || input > 100) {
+                    System.out.println("Wrong number");
+                } else {
+                    return input;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("It is not a number(((");
+                playerNumeral.next();
+            }
+        }
     }
 }

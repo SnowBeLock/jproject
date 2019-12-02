@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GuessNum {
+public class GuessNum extends GameResult {
     static Scanner playerNumeral = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -18,9 +18,8 @@ public class GuessNum {
         ArrayList<GameResult> leaderBoard = new ArrayList<>();
 
 
-
-        String name= nameAsking();
-        long gameStrat=System.currentTimeMillis();
+        String name = nameAsking();
+        long gameStrat = System.currentTimeMillis();
         for (int i = 0; i < 10; i++) {
             int input = askNum(i + 1);
             if (i == 9) {
@@ -44,25 +43,25 @@ public class GuessNum {
                     System.out.println("The numeral is higher! ");
                 }
                 if (input == randomInt) {
-                    GameResult res=new GameResult();
-                    res.name=name;
-                    res.triesCount=i+1;
+                    GameResult res = new GameResult();
+                    res.setName(name);
+                    res.setTriesCount(i + 1);
                     long gameEnd = System.currentTimeMillis();
-                    res.time=(gameEnd-gameStrat);
-                    i=-1;
+                    res.setTime(gameEnd - gameStrat);
+                    i = -1;
                     leaderBoard.add(res);
 
                     isLooser = false;
                     System.out.println("You are extrasense!!!!");
-                    name= nameAsking();
-                    gameStrat=System.currentTimeMillis();
+                    name = nameAsking();
+                    gameStrat = System.currentTimeMillis();
 
                 }
             }
         }
         System.out.println("Leadership: ");
-        for(GameResult n : leaderBoard){
-            System.out.println(n.name+"     "+n.triesCount+"     "+n.time/1000);
+        for (GameResult n : leaderBoard) {
+            System.out.println(n.getName() + "     " + n.getTriesCount() + "     " + n.getTime() / 1000);
         }
         if (isLooser) {
             System.out.println("You Lost!");
@@ -85,19 +84,17 @@ public class GuessNum {
             }
         }
     }
-    static String nameAsking()
-    {
+
+    static String nameAsking() {
         System.out.println("What is your name?");
-        String name=playerNumeral.next();
-        System.out.println("Hello, "+ name+"!");
+        String name = playerNumeral.next();
+        System.out.println("Hello, " + name + "!");
         return name;
     }
-    static String nameGiving()
-        {
-            System.out.println("What is your name?");
-            String name=playerNumeral.next();
-            return name;
-        }
 
-
+    static String nameGiving() {
+        System.out.println("What is your name?");
+        String name = playerNumeral.next();
+        return name;
+    }
 }

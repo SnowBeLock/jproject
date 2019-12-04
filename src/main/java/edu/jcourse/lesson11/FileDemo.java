@@ -36,7 +36,6 @@ public class FileDemo {
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNext()) {
                 System.out.println(scanner.nextLine());
-
             }
         } catch (IOException i) {
             System.out.println("Can no read");
